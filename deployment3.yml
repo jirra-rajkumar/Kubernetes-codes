@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+  labels:
+    type: webserver
+    author: intelliqit
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: webserver
+      author: intelliqit
+  template:
+    metadata:
+      name: httpd-pod
+      labels:
+        type: webserver
+        author: intelliqit
+    spec:
+      containers:
+        - name: myhttpd
+          image: httpd
+
+
+
+
+
+
